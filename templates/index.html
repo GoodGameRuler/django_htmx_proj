@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class='body' id="initial">
+    <h2> Hello World </h2>
+    <button 
+     hx-get={% url 'login' %}
+     hx-trigger="click"
+     hx-target="#contents"
+     hx-swap="innerHTML"
+     hx-indicator="#loading"
+     > 
+        {% csrf_token %}
+        Click Me!
+    </button>
+    <div id="loading" style="display: none;">Loading...</div>
+
+    <div id="contents">
+        TO BE FILLED
+    </div>
+</div>
+{% endblock %}
